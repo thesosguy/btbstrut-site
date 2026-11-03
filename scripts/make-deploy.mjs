@@ -33,6 +33,7 @@ const TYPES = {
   ".webp": "image/webp",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
+  ".woff2": "font/woff2",
 };
 
 function walk(dir, out = []) {

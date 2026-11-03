@@ -49,7 +49,7 @@ export default {
     headers.set("content-type", file.type);
     headers.set("etag", `"${file.hash}"`);
     headers.set("cache-control", file.type.startsWith("text/html") ? "public, max-age=0, must-revalidate" : "public, max-age=86400");
-    headers.set("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'");
+    headers.set("Content-Security-Policy", "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'none'; base-uri 'self'");
     if (status === 200 && request.headers.get("if-none-match") === `"${file.hash}"`) return new Response(null, { status: 304, headers });
     return new Response(request.method === "HEAD" ? null : decode(file), { status, headers });
   },
