@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "btbstrut-site",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-09-01",
+  "workers_dev": false,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "btbstrut-leads",
+      "database_id": "b5f1c474-9242-4258-8bc9-9ec6c258f529"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "MAILER",
+      "destination_address": "dj@gooseautomation.com"
+    }
+  ]
+  // Custom domains (btbstrut.com, www + alias hosts) are attached in the
+  // Cloudflare dashboard / Workers Domains API — not via this file.
+}
