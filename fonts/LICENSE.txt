@@ -1,0 +1,11 @@
+Self-hosted fonts for BTB Strut Systems (no third-party CDN).
+
+IBM Plex Sans
+  Copyright © 2017 IBM Corp. with Reserved Font Name "Plex"
+  SIL Open Font License 1.1 — https://scripts.sil.org/OFL
+  Source: https://github.com/IBM/plex
+
+Saira Condensed
+  Copyright 2016 The Saira Project Authors
+  SIL Open Font License 1.1 — https://scripts.sil.org/OFL
+  Source: https://github.com/Omnibus-Type/Saira
