@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /thanks/
+
+Sitemap: https://btbstrut.com/sitemap.xml
