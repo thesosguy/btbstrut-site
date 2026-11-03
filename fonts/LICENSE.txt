@@ -1,11 +1,15 @@
 Self-hosted fonts for BTB Strut Systems (no third-party CDN).
 
-IBM Plex Sans
-  Copyright © 2017 IBM Corp. with Reserved Font Name "Plex"
+Space Grotesk
+  Copyright 2020 The Space Grotesk Project Authors
   SIL Open Font License 1.1 — https://scripts.sil.org/OFL
-  Source: https://github.com/IBM/plex
+  Source: https://github.com/floriankarsten/space-grotesk
+  Role: open equivalent for a squarish technical display/UI sans
+        (Hubbell uses commercial Transducer — not redistributed here)
 
-Saira Condensed
-  Copyright 2016 The Saira Project Authors
+Source Sans 3
+  Copyright 2010-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'
   SIL Open Font License 1.1 — https://scripts.sil.org/OFL
-  Source: https://github.com/Omnibus-Type/Saira
+  Source: https://github.com/adobe-fonts/source-sans
+  Role: open equivalent for clear geometric UI/body text
+        (Hubbell uses commercial Gotham — not redistributed here)
