@@ -119,3 +119,11 @@ section.block{padding:40px 0}
 .reveal,.hero .eyebrow,.hero h1,.hero p.lead,.hero .actions,.hero-art,.page-hero .eyebrow,.page-hero h1,.page-hero p{opacity:1;transform:none}
 .btn:hover,.card:hover,.step:hover,.brand:hover svg{transform:none;box-shadow:none}
 }
+.hero-photo{padding:12px;background:var(--white);border:1px solid #33404c;border-bottom:4px solid var(--accent)}
+.hero-photo img{width:100%;height:auto;object-fit:contain;background:var(--white)}
+.hero-photo figcaption{color:var(--steel-500)}
+.prod-dims{font-family:var(--font-head);font-weight:700;font-size:1.35rem;color:var(--ink);margin:0 0 .6em}
+.spec-figure{margin:0;background:var(--white);border:1px solid var(--steel-100);border-bottom:4px solid var(--accent);border-radius:2px;padding:16px}
+.spec-figure img{width:100%;height:auto;display:block}
+.spec-figure figcaption{font-size:.9rem;color:var(--steel-500);text-align:center;margin-top:10px}
+.hero .lead strong{color:#fff;font-weight:700}
