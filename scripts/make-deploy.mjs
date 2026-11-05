@@ -31,6 +31,7 @@ const TYPES = {
   ".xml": "application/xml; charset=utf-8",
   ".ico": "image/x-icon",
   ".webp": "image/webp",
+  ".avif": "image/avif",
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".woff2": "font/woff2",

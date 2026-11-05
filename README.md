@@ -35,3 +35,13 @@ Alias domains (`btbstrut.com`, `btbstruts.com`, `backtobackstrut.com`, and all `
 ## Import note
 
 This repository was reconstructed from the live Worker modules (`worker.js`, `assets.js`), live site HTML/CSS/JS, D1 schema, and the project SPEC. Content matches production; do not invent company facts (phone, address, certifications, etc.) beyond what is already on the site / SPEC.
+
+## Lead form columns (2026-11-05)
+
+Before deploying Worker code that writes the expanded quote fields, run the additive D1 migration (does not wipe leads):
+
+```bash
+npx wrangler d1 execute btbstrut-leads --remote --file=migrations/2026-11-05-leads-quote-fields.sql
+```
+
+New nullable columns: `length`, `slot_style`, `delivery_address`, `delivery_what3words`, `needed_by`.

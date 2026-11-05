@@ -6,6 +6,9 @@
 <title>Truckload Pricing — Contact | BTB Strut Systems</title>
 <meta name="description" content="Request truckload pricing for Shallow, Deep or X-Tra Deep back-to-back strut channel from BTB Strut Systems. Full tractor-trailer loads only.">
 <link rel="canonical" href="https://b2bstrut.com/contact/">
+<!-- Search verification: prefer DNS TXT on b2bstrut.com (see docs). Optional HTML tokens:
+     <meta name="google-site-verification" content="PASTE_GSC_TOKEN">
+     <meta name="msvalidate.01" content="PASTE_BING_TOKEN"> -->
 <meta name="theme-color" content="#14191f">
 <meta property="og:type" content="website"><meta property="og:site_name" content="BTB Strut Systems"><meta property="og:title" content="Truckload Pricing — Contact | BTB Strut Systems"><meta property="og:description" content="Request truckload pricing for Shallow, Deep or X-Tra Deep back-to-back strut channel from BTB Strut Systems. Full tractor-trailer loads only."><meta property="og:url" content="https://b2bstrut.com/contact/"><meta property="og:image" content="https://b2bstrut.com/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Truckload Pricing — Contact | BTB Strut Systems"><meta name="twitter:description" content="Request truckload pricing for Shallow, Deep or X-Tra Deep back-to-back strut channel from BTB Strut Systems. Full tractor-trailer loads only."><meta name="twitter:image" content="https://b2bstrut.com/og-image.png">
@@ -20,7 +23,7 @@
 <header class="site-header"><div class="container nav">
 <a class="brand" href="/" aria-label="BTB Strut Systems home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#222b34"/><g fill="none" stroke="#f2a900" stroke-width="5" stroke-linejoin="round"><path d="M14 30V12h36v18M24 30V20h16v10"/><path d="M14 34v18h36V34M24 34v10h16V34"/></g><path d="M10 32h44" stroke="#a9b3bd" stroke-width="3"/></svg><span>BTB Strut<small>SYSTEMS</small></span></a>
 <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-<ul id="menu"><li><a class="link" href="/">Home</a></li><li><a class="link" href="/products/">Products</a></li><li><a class="link" href="/manufacturing/">Construction</a></li><li><a class="link" href="/applications/">Applications</a></li><li><a class="link" href="/about/">About</a></li><li><a class="btn" href="/contact/">Truckload Pricing</a></li></ul>
+<nav aria-label="Primary"><ul id="menu"><li><a class="link" href="/">Home</a></li><li><a class="link" href="/products/">Products</a></li><li><a class="link" href="/manufacturing/">Construction</a></li><li><a class="link" href="/applications/">Applications</a></li><li><a class="link" href="/about/">About</a></li><li><a class="btn" href="/contact/">Truckload Pricing</a></li></ul></nav>
 </div></header>
 <main id="main">
 <section class="page-hero"><div class="container"><span class="eyebrow">Truckload pricing</span><h1>Request a quote</h1><p>Fill out the form for pricing on full tractor-trailer loads of Shallow, Deep or X-Tra Deep — or call <a href="tel:+16035201515">(603) 520-1515</a>. Include size, length, slot style (solid or universal) and quantity.</p></div></section>
@@ -33,18 +36,24 @@
 <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization" maxlength="160"></div>
 <div><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
 <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
-<div><label for="product_interest">Product interest</label><select id="product_interest" name="product_interest"><option value="">Select…</option><option>Shallow 1-5/8" × 1-5/8" (14 ga)</option><option>Deep 1-5/8" × 3-1/4" (12 ga)</option><option>X-Tra Deep 1-5/8" × 6-1/2" (12 ga)</option><option>Mixed truckload (specify in message)</option></select></div>
-<div><label for="quantity">Truckload quantity</label><input id="quantity" name="quantity" maxlength="80" placeholder="e.g. 1 trailer — Deep 20 ft slotted"></div>
-<div class="full"><label for="message">Message / specifications <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required maxlength="5000" placeholder="Size(s), 10 or 20 ft, solid or universal slots, trailer count, delivery location, timing…"></textarea></div>
+<div><label for="product_interest">Profile <span class="req" aria-hidden="true">*</span></label><select id="product_interest" name="product_interest" required><option value="">Select…</option><option value="Shallow">Shallow 1-5/8" × 1-5/8" (14 ga)</option><option value="Deep">Deep 1-5/8" × 3-1/4" (12 ga)</option><option value="X-Tra Deep">X-Tra Deep 1-5/8" × 6-1/2" (12 ga)</option><option value="Mixed">Mixed truckload (specify in message)</option></select></div>
+<div><label for="length">Length <span class="req" aria-hidden="true">*</span></label><select id="length" name="length" required><option value="">Select…</option><option value="10 ft">10 ft</option><option value="20 ft">20 ft</option><option value="Mixed">Mixed (specify in message)</option></select></div>
+<div><label for="slot_style">Slots <span class="req" aria-hidden="true">*</span></label><select id="slot_style" name="slot_style" required><option value="">Select…</option><option value="Solid">Solid (no slots)</option><option value="Universal">Universal (1.125&Prime;)</option><option value="Mixed">Mixed (specify in message)</option></select></div>
+<div><label for="quantity">Truckload quantity / trailer count <span class="req" aria-hidden="true">*</span></label><input id="quantity" name="quantity" required maxlength="80" placeholder="e.g. 1 trailer"></div>
+<div class="full"><label for="delivery_address">Delivery location (street address)</label><input id="delivery_address" name="delivery_address" autocomplete="street-address" maxlength="300" placeholder="Street, city, state, ZIP"></div>
+<div class="full"><label for="delivery_what3words">Delivery location — what3words <span class="small" style="font-weight:400;text-transform:none;letter-spacing:0">(3 little words)</span></label><input id="delivery_what3words" name="delivery_what3words" maxlength="80" placeholder="e.g. filled.count.soap" inputmode="text" spellcheck="false"><p class="small" style="margin-top:6px">Provide a street address, a what3words (“3 little words”) location, or both.</p></div>
+<div><label for="needed_by">Needed-by date</label><input id="needed_by" name="needed_by" type="date"></div>
+<div class="full"><label for="message">Message / other specifications <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required maxlength="5000" placeholder="Anything else we should know for the truckload quote…"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <input type="hidden" name="_ts" value="">
-<div class="full"><button class="btn" type="submit">Send Truckload Request</button><p class="small" style="margin-top:12px">Fields marked * are required. We use your information only to respond to your inquiry. Full tractor-trailer loads only.</p></div>
+<div class="full"><button class="btn" type="submit">Send Truckload Request</button><p class="small" style="margin-top:12px">Fields marked * are required. Provide a street address and/or a what3words location for delivery. We use your information only to respond to your inquiry. See our <a href="/privacy/">Privacy Policy</a>. Full tractor-trailer loads only.</p></div>
 </div>
 <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
 </form>
 <noscript><p class="small">This form works without JavaScript too — submitting will take you to a confirmation page.</p></noscript>
 </div>
-<div><h2>What to include</h2><ul class="checklist"><li>Profile: Shallow, Deep or X-Tra Deep</li><li>Length: 10 ft or 20 ft</li><li>Slots: solid or universal (1.125&Prime;)</li><li>Truckload quantity / trailer count</li><li>Delivery location</li><li>Needed-by date</li></ul>
+<div><h2>What to include</h2><ul class="checklist"><li>Profile: Shallow, Deep or X-Tra Deep</li><li>Length: 10 ft or 20 ft</li><li>Slots: solid or universal (1.125&Prime;)</li><li>Truckload quantity / trailer count</li><li>Delivery location (street address and/or what3words)</li><li>Needed-by date</li></ul>
+<p class="small" style="margin-top:14px">The form fields match this list. Include a street address, a what3words (“3 little words”) location, or both.</p>
 <div class="contact-card" style="margin-top:28px"><h3>Call for truckload pricing</h3><p class="prod-dims" style="margin:0.2em 0 0.6em"><a href="tel:+16035201515">(603) 520-1515</a></p><p class="small">SEW Belmont LLC<br>dba Back to Back Strut Co<br>122 Morningside Dr<br>Laconia, NH 03246</p><p class="small" style="margin-top:12px">Or leave your number in the form if you want a callback.</p></div></div>
 </div></section>
 </main>
@@ -52,10 +61,10 @@
 <div class="footer-grid">
 <div><a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="12" fill="#222b34"/><g fill="none" stroke="#f2a900" stroke-width="5" stroke-linejoin="round"><path d="M14 30V12h36v18M24 30V20h16v10"/><path d="M14 34v18h36V34M24 34v10h16V34"/></g><path d="M10 32h44" stroke="#a9b3bd" stroke-width="3"/></svg><span>BTB Strut<small>SYSTEMS</small></span></a><p style="margin-top:14px;max-width:30em">SEW Belmont LLC dba Back to Back Strut Co (BTB Strut Systems) manufactures back-to-back strut channel — Shallow, Deep and X-Tra Deep — and sells it by the full truck load only.</p></div>
 <div><h4>Products</h4><ul><li><a href="/products/#shallow">Shallow 1-5/8&Prime; × 1-5/8&Prime;</a></li><li><a href="/products/#deep">Deep 1-5/8&Prime; × 3-1/4&Prime;</a></li><li><a href="/products/#xtra-deep">X-Tra Deep 1-5/8&Prime; × 6-1/2&Prime;</a></li><li><a href="/products/#slots">Solid or universal slots</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/applications/">Applications</a></li><li><a href="/manufacturing/">Construction</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="/about/">About</a></li><li><a href="/applications/">Applications</a></li><li><a href="/manufacturing/">Construction</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li></ul></div>
 <div><h4>Contact</h4><p>Full tractor-trailer loads only. Call <a href="tel:+16035201515">(603) 520-1515</a> or request truckload pricing.</p><p class="small" style="margin-top:10px">SEW Belmont LLC<br>dba Back to Back Strut Co<br>122 Morningside Dr<br>Laconia, NH 03246<br><a href="tel:+16035201515">(603) 520-1515</a></p><a class="btn" href="/contact/" style="margin-top:14px">Request Truckload Pricing</a></div>
 </div>
-<div class="legal"><span>&copy; <span id="yr">2026</span> SEW Belmont LLC dba Back to Back Strut Co. All rights reserved.</span><span>Brand names such as Unistrut&reg; and B-Line&reg; are trademarks of their respective owners and are referenced for size comparison only.</span></div>
+<div class="legal"><span>&copy; <span id="yr">2026</span> SEW Belmont LLC dba Back to Back Strut Co. All rights reserved. · <a href="/privacy/">Privacy</a> · <a href="/terms/">Terms</a></span><span>Brand names such as Unistrut&reg; and B-Line&reg; are trademarks of their respective owners and are referenced for size comparison only.</span></div>
 </div></footer>
 <script src="/main.js" defer></script>
 </body>
