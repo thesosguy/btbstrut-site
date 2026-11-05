@@ -30,7 +30,7 @@ node scripts/make-deploy.mjs
 #   - or: npx wrangler deploy
 ```
 
-Alias domains (`btbstrut.com`, `btbstruts.com`, `backtobackstrut.com`, and all `www.` hosts) 301 to `https://b2bstrut.com` with path + query preserved (Worker logic). Quote email From remains `quotes@btbstrut.com` (CF Email Routing); do not enable Email Routing on `b2bstrut.com` (Microsoft MX).
+Alias domains (`btbstrut.com`, `btbstruts.com`, `b2bstruts.com`, `backtobackstrut.com`, and all `www.` hosts) 301 to `https://b2bstrut.com` with path + query preserved (Worker logic). Quote email From remains `quotes@btbstrut.com` (CF Email Routing); do not enable Email Routing on `b2bstrut.com` (Microsoft MX).
 
 ## Import note
 
