@@ -17,6 +17,6 @@
       "destination_address": "dj@gooseautomation.com"
     }
   ]
-  // Custom domains (b2bstrut.com primary; btbstrut.com, www + alias hosts) are attached in the
-  // Cloudflare dashboard / Workers Domains API — not via this file.
+  // Custom domains (b2bstrut.com primary; btbstrut.com, btbstruts.com, b2bstruts.com,
+  // backtobackstrut.com, and www.* of each) are attached via Workers Domains API — not this file.
 }
