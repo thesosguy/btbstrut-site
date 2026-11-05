@@ -2,7 +2,7 @@
 
 Marketing site for **BTB Strut Systems** (manufacturer of back-to-back / double welded strut channel).
 
-- **Live:** https://btbstrut.com  
+- **Live:** https://b2bstrut.com  
 - **Worker:** `btbstrut-site` (Cloudflare account SOSTECH)  
 - **D1:** `btbstrut-leads` (`b5f1c474-9242-4258-8bc9-9ec6c258f529`)  
 - **Quote notifications:** `dj@gooseautomation.com` via `send_email` binding `MAILER` (from `quotes@btbstrut.com`)
@@ -30,7 +30,7 @@ node scripts/make-deploy.mjs
 #   - or: npx wrangler deploy
 ```
 
-Alias domains (`btbstruts.com`, `b2bstrut.com`, `backtobackstrut.com`, and all `www.`) 301 to `https://btbstrut.com` with path + query preserved (Worker logic).
+Alias domains (`btbstrut.com`, `btbstruts.com`, `backtobackstrut.com`, and all `www.` hosts) 301 to `https://b2bstrut.com` with path + query preserved (Worker logic). Quote email From remains `quotes@btbstrut.com` (CF Email Routing); do not enable Email Routing on `b2bstrut.com` (Microsoft MX).
 
 ## Import note
 

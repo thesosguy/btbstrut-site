@@ -3,4 +3,4 @@ Allow: /
 Disallow: /api/
 Disallow: /thanks/
 
-Sitemap: https://btbstrut.com/sitemap.xml
+Sitemap: https://b2bstrut.com/sitemap.xml
