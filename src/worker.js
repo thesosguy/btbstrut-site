@@ -21,6 +21,8 @@ const json = (obj, status = 200) =>
 const clean = (v, max) => (typeof v === "string" ? v.replace(/\u0000/g, "").trim().slice(0, max) : "");
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const hdr = (s) => s.replace(/[\r\n]+/g, " ").replace(/[^\x20-\x7E]/g, "?");
+// what3words: three dot-separated words (letters only); optional leading ///
+const W3W_RE = /^(?:\/\/\/)?[a-z]+\.[a-z]+\.[a-z]+$/i;
 
 export default {
   async fetch(request, env, ctx) {
@@ -81,11 +83,28 @@ async function handleQuote(request, env, ctx) {
     email: clean(form.get("email"), 200),
     phone: clean(form.get("phone"), 40),
     product_interest: clean(form.get("product_interest"), 120),
+    length: clean(form.get("length"), 40),
+    slot_style: clean(form.get("slot_style"), 40),
     quantity: clean(form.get("quantity"), 80),
+    delivery_address: clean(form.get("delivery_address"), 300),
+    delivery_what3words: clean(form.get("delivery_what3words"), 80).replace(/^\/\/\//, "").toLowerCase(),
+    needed_by: clean(form.get("needed_by"), 40),
     message: clean(form.get("message"), 5000),
   };
   if (!lead.name || !lead.email || !lead.message) return json({ ok: false, error: "Please fill in your name, email and message." }, 400);
   if (!EMAIL_RE.test(lead.email)) return json({ ok: false, error: "Please enter a valid email address." }, 400);
+  if (!lead.product_interest || !lead.length || !lead.slot_style || !lead.quantity) {
+    return json({ ok: false, error: "Please select profile, length, slots, and truckload quantity." }, 400);
+  }
+  if (!lead.delivery_address && !lead.delivery_what3words) {
+    return json({ ok: false, error: "Please provide a delivery street address and/or a what3words location." }, 400);
+  }
+  if (lead.delivery_what3words && !W3W_RE.test(lead.delivery_what3words)) {
+    return json({ ok: false, error: "what3words should look like three.words.here (letters separated by dots)." }, 400);
+  }
+  if (lead.needed_by && !/^\d{4}-\d{2}-\d{2}$/.test(lead.needed_by)) {
+    return json({ ok: false, error: "Needed-by date must be a valid date." }, 400);
+  }
 
   const ip = request.headers.get("cf-connecting-ip") || "";
   const country = request.cf?.country || "";
@@ -94,9 +113,17 @@ async function handleQuote(request, env, ctx) {
   let id;
   try {
     const r = await env.DB.prepare(
-      `INSERT INTO leads (name, company, email, phone, product_interest, quantity, message, source_host, ip, country, user_agent, email_status)
-       VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, 'pending') RETURNING id`
-    ).bind(lead.name, lead.company, lead.email, lead.phone, lead.product_interest, lead.quantity, lead.message, new URL(request.url).hostname, ip, country, ua).first();
+      `INSERT INTO leads (
+         name, company, email, phone, product_interest, quantity, message,
+         source_host, ip, country, user_agent, email_status,
+         length, slot_style, delivery_address, delivery_what3words, needed_by
+       ) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, 'pending', ?12, ?13, ?14, ?15, ?16)
+       RETURNING id`
+    ).bind(
+      lead.name, lead.company, lead.email, lead.phone, lead.product_interest, lead.quantity, lead.message,
+      new URL(request.url).hostname, ip, country, ua,
+      lead.length, lead.slot_style, lead.delivery_address, lead.delivery_what3words, lead.needed_by
+    ).first();
     id = r?.id;
   } catch (e) {
     console.error("D1 insert failed", e);
@@ -114,9 +141,21 @@ async function notify(env, id, lead, country) {
     const subject = hdr(`${COMPANY} quote request #${id}: ${lead.name}${lead.company ? " (" + lead.company + ")" : ""}`);
     const body = [
       `New quote request from b2bstrut.com (#${id})`, "",
-      `Name:      ${lead.name}`, `Company:   ${lead.company}`, `Email:     ${lead.email}`, `Phone:     ${lead.phone}`,
-      `Product:   ${lead.product_interest}`, `Quantity:  ${lead.quantity}`, `Country:   ${country}`, "",
-      "Message:", lead.message, "", "— Reply to this email to respond directly to the customer.",
+      `Name:        ${lead.name}`,
+      `Company:     ${lead.company}`,
+      `Email:       ${lead.email}`,
+      `Phone:       ${lead.phone}`,
+      `Profile:     ${lead.product_interest}`,
+      `Length:      ${lead.length}`,
+      `Slots:       ${lead.slot_style}`,
+      `Quantity:    ${lead.quantity}`,
+      `Delivery:    ${lead.delivery_address}`,
+      `what3words:  ${lead.delivery_what3words ? "///" + lead.delivery_what3words : ""}`,
+      `Needed by:   ${lead.needed_by}`,
+      `Country:     ${country}`,
+      "",
+      "Message:", lead.message, "",
+      "— Reply to this email to respond directly to the customer.",
     ].join("\r\n");
     const msgId = `<lead-${id}-${Date.now()}@b2bstrut.com>`;
     const raw = [

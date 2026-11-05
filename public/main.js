@@ -1,4 +1,4 @@
-(()=>{const t=document.querySelector('.menu-toggle'),m=document.getElementById('menu');if(t&&m){t.addEventListener('click',()=>{const o=m.classList.toggle('open');t.setAttribute('aria-expanded',o)})}
+(()=>{const t=document.querySelector('.menu-toggle'),m=document.getElementById('menu');if(t&&m){const setOpen=o=>{m.classList.toggle('open',o);t.setAttribute('aria-expanded',o)};t.addEventListener('click',()=>setOpen(!m.classList.contains('open')));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open')){setOpen(false);t.focus()}})}
 const y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mark=els=>{els.forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--d',`${Math.min(i*55,220)}ms`)})};
@@ -10,9 +10,9 @@ const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersect
 targets.forEach(el=>io.observe(el))};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',reveal);else reveal();
 const f=document.getElementById('quote-form');if(!f)return;const ts=f.querySelector('[name=_ts]');if(ts)ts.value=Date.now();
-const p=new URLSearchParams(location.search).get('product');if(p){const s=f.querySelector('[name=product_interest]');[...s.options].forEach(o=>{if(o.value===p)s.value=p})}
+const p=new URLSearchParams(location.search).get('product');if(p){const s=f.querySelector('[name=product_interest]');const map={shallow:'Shallow',deep:'Deep','x-tra-deep':'X-Tra Deep',xtradeep:'X-Tra Deep',mixed:'Mixed'};const want=map[p.toLowerCase()]||p;[...s.options].forEach(o=>{if(o.value===want||o.value===p||o.textContent.includes(p))s.value=o.value})}
 const st=document.getElementById('form-status'),btn=f.querySelector('button[type=submit]');
-f.addEventListener('submit',async e=>{e.preventDefault();st.className='form-status';if(!f.checkValidity()){f.reportValidity();return}
+f.addEventListener('submit',async e=>{e.preventDefault();st.className='form-status';if(!f.checkValidity()){f.reportValidity();return}const addr=(f.querySelector('[name=delivery_address]')||{}).value?.trim()||'';const w3w=(f.querySelector('[name=delivery_what3words]')||{}).value?.trim()||'';if(!addr&&!w3w){st.className='form-status err';st.textContent='Please provide a delivery street address and/or a what3words location.';st.focus();return}
 btn.disabled=true;const old=btn.textContent;btn.textContent='Sending…';
 try{const r=await fetch('/api/quote',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)});const j=await r.json().catch(()=>({}));
 if(r.ok&&j.ok){st.className='form-status ok';st.textContent='Thank you — your request has been received. Our team will follow up by email shortly.';f.reset();if(ts)ts.value=Date.now()}
