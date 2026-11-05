@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preload" href="/fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/styles.css?v=b9fda47f9e">
+<link rel="stylesheet" href="/styles.css?v=d7b33b2a30">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BTB Strut Systems","legalName":"SEW Belmont LLC","alternateName":["Back to Back Strut Co","BTB Strut","Back to Back Strut"],"url":"https://b2bstrut.com/","logo":"https://b2bstrut.com/favicon.svg","description":"Manufacturer of back-to-back (double) strut channel — Shallow, Deep and X-Tra Deep — sold by the full truck load. SEW Belmont LLC dba Back to Back Strut Co.","telephone":"+1-603-520-1515","address":{"@type":"PostalAddress","streetAddress":"122 Morningside Dr","addressLocality":"Laconia","addressRegion":"NH","postalCode":"03246","addressCountry":"US"},"contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+1-603-520-1515","url":"https://b2bstrut.com/contact/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://b2bstrut.com/"},{"@type":"ListItem","position":2,"name":"Truckload Pricing","item":"https://b2bstrut.com/contact/"}]}</script>
 </head>
@@ -27,36 +27,42 @@
 <nav aria-label="Primary"><ul id="menu"><li><a class="link" href="/">Home</a></li><li><a class="link" href="/products/">Products</a></li><li><a class="link" href="/manufacturing/">Construction</a></li><li><a class="link" href="/applications/">Applications</a></li><li><a class="link" href="/about/">About</a></li><li><a class="btn" href="/contact/" aria-current="page">Request Truckload Pricing</a></li></ul></nav>
 </div></header>
 <main id="main">
-<section class="page-hero"><div class="container"><span class="eyebrow">Truckload pricing</span><h1>Request a quote</h1><p>Fill out the form for pricing on full tractor-trailer loads of Shallow, Deep or X-Tra Deep — or call <a href="tel:+16035201515">(603) 520-1515</a>. Include size, length, slot style (solid or universal) and quantity.</p></div></section>
+<section class="page-hero contact-hero"><div class="container"><span class="eyebrow">Truckload pricing</span><h1>Request a quote</h1><p>FTL Shallow, Deep or X-Tra Deep — or call <a href="tel:+16035201515">(603) 520-1515</a>.</p></div></section>
 
-<section class="block alt"><div class="container split" style="align-items:start">
+<section class="block alt contact-block"><div class="container contact-layout">
 <div class="form-card">
 <form id="quote-form" action="/api/quote" method="post" novalidate>
 <div class="form-grid">
 <div><label for="name">Name <span class="req" aria-hidden="true">*</span></label><input id="name" name="name" autocomplete="name" required maxlength="120"></div>
 <div><label for="company">Company</label><input id="company" name="company" autocomplete="organization" maxlength="160"></div>
-<div><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
 <div><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40"></div>
+<div><label for="email">Email <span class="req" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" required maxlength="200"></div>
 <div><label for="product_interest">Profile <span class="req" aria-hidden="true">*</span></label><select id="product_interest" name="product_interest" required><option value="">Select…</option><option value="Shallow">Shallow 1-5/8" × 1-5/8" (14 ga)</option><option value="Deep">Deep 1-5/8" × 3-1/4" (12 ga)</option><option value="X-Tra Deep">X-Tra Deep 1-5/8" × 6-1/2" (12 ga)</option><option value="Mixed">Mixed truckload (specify in message)</option></select></div>
 <div><label for="length">Length <span class="req" aria-hidden="true">*</span></label><select id="length" name="length" required><option value="">Select…</option><option value="10 ft">10 ft</option><option value="20 ft">20 ft</option><option value="Mixed">Mixed (specify in message)</option></select></div>
 <div><label for="slot_style">Slots <span class="req" aria-hidden="true">*</span></label><select id="slot_style" name="slot_style" required><option value="">Select…</option><option value="Solid">Solid (no slots)</option><option value="Universal">Universal (1.125&Prime;)</option><option value="Mixed">Mixed (specify in message)</option></select></div>
-<div><label for="quantity">Truckload quantity / trailer count <span class="req" aria-hidden="true">*</span></label><input id="quantity" name="quantity" required maxlength="80" placeholder="e.g. 1 trailer"></div>
-<div class="full"><label for="delivery_address">Delivery location (street address)</label><input id="delivery_address" name="delivery_address" autocomplete="street-address" maxlength="300" placeholder="Street, city, state, ZIP"></div>
-<div class="full"><label for="delivery_what3words">Delivery location — what3words</label><input id="delivery_what3words" name="delivery_what3words" maxlength="80" placeholder="e.g. filled.count.soap" inputmode="text" spellcheck="false"><p class="small" style="margin-top:6px">Provide a street address, a what3words location, or both.</p></div>
-<div><label for="needed_by">Needed-by date</label><input id="needed_by" name="needed_by" type="date"></div>
-<div class="full"><label for="message">Message / other specifications <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required maxlength="5000" placeholder="Anything else we should know for the truckload quote…"></textarea></div>
+<div><label for="quantity">Trailers <span class="req" aria-hidden="true">*</span></label><input id="quantity" name="quantity" required maxlength="80" placeholder="e.g. 1 trailer" title="Truckload quantity / trailer count"></div>
+<div><label for="needed_by">Needed by</label><input id="needed_by" name="needed_by" type="date"></div>
+<div><label for="delivery_address">Delivery street</label><input id="delivery_address" name="delivery_address" autocomplete="street-address" maxlength="300" placeholder="Street, city, state, ZIP"></div>
+<div><label for="delivery_what3words">what3words</label><input id="delivery_what3words" name="delivery_what3words" maxlength="80" placeholder="e.g. filled.count.soap" inputmode="text" spellcheck="false" title="Provide a street address, a what3words location, or both"></div>
+<div class="full"><label for="message">Message / specs <span class="req" aria-hidden="true">*</span></label><textarea id="message" name="message" required maxlength="5000" placeholder="Anything else for the truckload quote…" rows="2"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="website">Leave this field empty</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
 <input type="hidden" name="_ts" value="">
-<div class="full form-submit-anchor" id="form-submit-anchor"><button class="btn" type="submit" id="quote-submit">Request Truckload Pricing</button><p class="small" style="margin-top:12px">Fields marked * are required. Provide a street address and/or a what3words location for delivery. We use your information only to respond to your inquiry. See our <a href="/privacy/">Privacy Policy</a>. Full tractor-trailer loads only.</p></div>
+<div class="full form-submit-anchor" id="form-submit-anchor"><button class="btn" type="submit" id="quote-submit">Request Truckload Pricing</button><p class="small form-legal">* Required. Street and/or what3words for delivery. Used only to answer your inquiry — <a href="/privacy/">Privacy</a>. FTL only.</p></div>
 </div>
 <div id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></div>
 </form>
 <div class="form-sticky" id="form-sticky" hidden><button type="button" class="btn" id="form-sticky-submit">Request Truckload Pricing</button></div>
 <noscript><p class="small">This form works without JavaScript too — submitting will take you to a confirmation page.</p></noscript>
 </div>
-<div><h2>What to include</h2><ul class="checklist"><li>Profile: Shallow, Deep or X-Tra Deep</li><li>Length: 10 ft or 20 ft</li><li>Slots: solid or universal (1.125&Prime;)</li><li>Truckload quantity / trailer count</li><li>Delivery location (street address and/or what3words)</li><li>Needed-by date</li></ul>
-<p class="small" style="margin-top:14px">The form fields match this list. Include a street address, a what3words location, or both.</p>
-<div class="contact-card" style="margin-top:28px"><h3>Call for truckload pricing</h3><p class="prod-dims" style="margin:0.2em 0 0.6em"><a href="tel:+16035201515">(603) 520-1515</a></p><p class="small">SEW Belmont LLC<br>dba Back to Back Strut Co<br>122 Morningside Dr<br>Laconia, NH 03246</p><p class="small" style="margin-top:12px">Or leave your number in the form if you want a callback.</p></div></div>
+<aside class="contact-aside" aria-label="Contact">
+<div class="contact-card contact-call"><h3>Call for pricing</h3><p class="prod-dims"><a href="tel:+16035201515">(603) 520-1515</a></p><p class="small">SEW Belmont LLC · dba Back to Back Strut Co<br>122 Morningside Dr, Laconia, NH 03246</p></div>
+<ul class="checklist contact-checklist" aria-label="What to include">
+<li>Profile · length · slots</li>
+<li>Trailer count</li>
+<li>Delivery street and/or what3words</li>
+<li>Needed-by date</li>
+</ul>
+</aside>
 </div></section>
 </main>
 <footer class="site-footer"><div class="container">

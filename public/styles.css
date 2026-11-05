@@ -154,3 +154,53 @@ a[href^="tel"]{color:inherit;text-decoration:underline;text-decoration-color:var
 .form-sticky{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(20,25,31,.97);border-top:3px solid var(--accent);box-shadow:0 -10px 28px rgba(0,0,0,.28)}
 .form-sticky .btn{width:100%;min-height:48px}
 @media (max-width:900px){.form-sticky.is-shown{display:block}body.has-form-sticky{padding-bottom:84px}}
+
+/* contact quote form — compact density / above-the-fold */
+.contact-hero{padding:18px 0 12px}
+.contact-hero h1{font-size:clamp(1.35rem,2.6vw,1.85rem);margin:0 0 .15em;line-height:1.1}
+.contact-hero p{font-size:.92rem;max-width:52em;line-height:1.35;margin:0}
+.contact-hero .eyebrow{margin-bottom:6px;font-size:.72rem}
+.contact-hero .eyebrow::before{width:18px}
+.contact-block{padding:14px 0 28px}
+.contact-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(220px,.7fr);gap:18px;align-items:start}
+.contact-layout .form-card{padding:12px 14px;box-shadow:0 8px 18px rgba(20,25,31,.08)}
+.contact-layout .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+.contact-layout .form-grid .full{grid-column:1/-1}
+.contact-layout label{margin-bottom:1px;font-size:.72rem;line-height:1.2}
+.contact-layout input,.contact-layout select,.contact-layout textarea{padding:5px 8px;font-size:.88rem;line-height:1.2;min-height:32px}
+.contact-layout select{padding-right:24px}
+.contact-layout textarea{min-height:44px;resize:vertical;padding-top:6px}
+.contact-layout .form-legal{margin:4px 0 0!important;font-size:.68rem;line-height:1.25;color:var(--steel-500)}
+.contact-layout .form-status{margin-top:8px;padding:8px 10px;font-size:.88rem}
+.contact-layout .form-submit-anchor .btn{padding:8px 14px;font-size:.86rem;min-height:40px}
+.contact-aside .contact-call{padding:12px 14px}
+.contact-aside .contact-call h3{font-size:1rem;margin:0 0 .15em}
+.contact-aside .contact-call .prod-dims{font-size:1.1rem;margin:0.1em 0 0.25em}
+.contact-aside .contact-call .small{font-size:.78rem;line-height:1.35}
+.contact-aside .contact-checklist{margin-top:10px}
+.contact-aside .contact-checklist li{padding:5px 0 5px 26px;font-size:.84rem}
+.contact-aside .contact-checklist li::before{top:7px;width:13px;height:13px;background-size:8px}
+@media (min-width:1100px){
+.contact-layout .form-grid{grid-template-columns:1fr 1fr 1fr}
+.contact-layout .form-grid .full{grid-column:1/-1}
+}
+@media (max-width:900px){
+.contact-hero{padding:8px 0 6px}
+.contact-hero h1{font-size:1.18rem;margin:0 0 .1em}
+.contact-hero p{font-size:.84rem}
+.contact-block{padding:6px 0 12px}
+.contact-layout{grid-template-columns:1fr;gap:10px}
+.contact-layout .form-card{padding:8px;order:1}
+.contact-aside{order:2}
+.contact-layout .form-grid{grid-template-columns:1fr 1fr;gap:4px 8px}
+.contact-layout input,.contact-layout select,.contact-layout textarea{padding:4px 7px;font-size:.84rem;min-height:30px}
+.contact-layout textarea{min-height:36px}
+.contact-layout .form-submit-anchor .btn{width:100%;min-height:42px}
+.contact-aside .contact-checklist{display:grid;grid-template-columns:1fr 1fr;gap:0 10px}
+.contact-aside .contact-checklist li{border-bottom:0;padding:4px 0 4px 24px;font-size:.8rem}
+.contact-aside .contact-call{padding:10px 12px}
+}
+@media (max-width:900px){
+/* keep sticky submit useful when keyboard/zoom pushes fold */
+.contact-layout .form-sticky{padding:8px 12px calc(8px + env(safe-area-inset-bottom,0px))}
+}
