@@ -111,6 +111,15 @@ section.block{padding:40px 0}
 .cta-band{padding:28px 0}
 .grid{gap:12px}
 }
+@media (max-width:900px){
+.reveal{transform:translateY(36px);transition-duration:.75s}
+.hero .eyebrow,.hero h1,.hero p.lead,.hero .actions,.hero-art,.page-hero .eyebrow,.page-hero h1,.page-hero p{transform:translateY(32px);animation-duration:.95s}
+.hero-art{transform:translateY(40px) scale(.97)}
+.hero h1,.page-hero h1{animation-delay:.12s}
+.hero p.lead,.page-hero p{animation-delay:.24s}
+.hero .actions{animation-delay:.36s}
+.hero-art{animation-delay:.3s}
+}
 @media (prefers-reduced-motion:reduce){
 *{transition:none!important;animation:none!important;scroll-behavior:auto!important}
 .reveal,.hero .eyebrow,.hero h1,.hero p.lead,.hero .actions,.hero-art,.page-hero .eyebrow,.page-hero h1,.page-hero p{opacity:1;transform:none}

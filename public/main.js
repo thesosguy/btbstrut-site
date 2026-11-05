@@ -1,12 +1,12 @@
 (()=>{const t=document.querySelector('.menu-toggle'),m=document.getElementById('menu');if(t&&m){const setOpen=o=>{m.classList.toggle('open',o);t.setAttribute('aria-expanded',o)};t.addEventListener('click',()=>setOpen(!m.classList.contains('open')));document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open')){setOpen(false);t.focus()}})}
 const y=document.getElementById('yr');if(y)y.textContent=new Date().getFullYear();
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const mark=els=>{els.forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--d',`${Math.min(i*55,220)}ms`)})};
+const mobile=window.matchMedia('(max-width:900px)').matches;const mark=els=>{els.forEach((el,i)=>{el.classList.add('reveal');el.style.setProperty('--d',`${Math.min(i*(mobile?95:55),mobile?400:220)}ms`)})};
 const reveal=()=>{const targets=document.querySelectorAll('.card,.step,.section-head,.checklist,.table-wrap,.form-card,.cta-band .container,.split > *');
 if(!targets.length)return;
 if(reduce){targets.forEach(el=>el.classList.add('reveal','is-in'));return}
 mark(targets);
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-in');io.unobserve(e.target)}})},{threshold:mobile?.08:.12,rootMargin:mobile?'0px 0px -4% 0px':'0px 0px -8% 0px'});
 targets.forEach(el=>io.observe(el))};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',reveal);else reveal();
 const f=document.getElementById('quote-form');if(!f)return;const ts=f.querySelector('[name=_ts]');if(ts)ts.value=Date.now();
