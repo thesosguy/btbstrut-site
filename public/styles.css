@@ -131,7 +131,7 @@ section.block{padding:40px 0}
 .prod-dims{font-family:var(--font-head);font-weight:700;font-size:1.35rem;color:var(--ink);margin:0 0 .6em}
 .profile{background:var(--steel-50);border-radius:2px;padding:14px;margin-bottom:16px;border-bottom:3px solid var(--accent)}
 .profile svg{display:block;width:100%;height:auto;max-height:280px;margin:0 auto}
-.profile-dark{background:linear-gradient(180deg,#26313b,#1a2128);border:1px solid #33404c;border-bottom:3px solid var(--accent)}
+.profile-dark{background:linear-gradient(180deg,#26313b,#1a2128);border:1px solid #33404c;border-bottom:3px solid var(--accent)}.card-photo{margin:0 0 16px;overflow:hidden;border-radius:2px;border:1px solid var(--steel-100);border-bottom:3px solid var(--accent);background:var(--steel-50)}.card-photo picture{display:block}.card-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--steel-50)}
 .card .profile{margin-top:0}
 .site-footer .small{color:var(--steel-300);font-size:.9rem;line-height:1.5}
 .site-footer a[href^="tel"]{color:var(--accent);font-weight:700}
